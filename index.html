@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KinoshkiApp</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="libs/nouislider.min.css" />
+    <script src="libs/nouislider.min.js" defer></script>
+    <script src="js/app.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <header>
+        <a href="index.html" class="logo">KinoshkiApp</a>
+    </header>
+    <aside class="filter">
+        <form id="filter-form">
+            <div class="filter-group">
+                <label for="genre">Жанр:</label>
+                <select id="genre" class="custom-select">
+                    <option value="">Все жанры</option>
+                    <option value="аниме">Аниме</option>
+                    <option value="биография">Биографии</option>
+                    <option value="боевик">Боевики</option>
+                    <option value="вестерн">Вестерны</option>
+                    <option value="военный">Военные</option>
+                    <option value="детектив">Детективы</option>
+                    <option value="документальный">Документальные</option>
+                    <option value="драма">Драмы</option>
+                    <option value="история">Исторические</option>
+                    <option value="комедия">Комедии</option>
+                    <option value="криминал">Криминал</option>
+                    <option value="мелодрама">Мелодрамы</option>
+                    <option value="музыка">Музыкальные</option>
+                    <option value="мультфильм">Мультфильмы</option>
+                    <option value="приключения">Приключения</option>
+                    <option value="семейный">Семейные</option>
+                    <option value="спорт">Спортивные</option>
+                    <option value="триллер">Триллеры</option>
+                    <option value="ужасы">Ужасы</option>
+                    <option value="фантастика">Фантастика</option>
+                    <option value="фэнтези">Фэнтези</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="release-year-range">Год выхода:</label>
+                <div class="range-values">
+                    <span id="release-year-min-value">2000</span> - <span id="release-year-max-value">2024</span>
+                </div>
+                <div class="slider-styled" id="release-year-slider"></div>
+            </div>
+            <div class="filter-group">
+                <label for="rating-range">Оценка:</label>
+                <div class="range-values">
+                    <span id="rating-min-value">0</span> - <span id="rating-max-value">10</span>
+                </div>
+                <div class="slider-styled" id="rating-slider"></div>
+            </div>
+            <div class="filter-group">
+                <label for="sort">Отсортировать:</label>
+                <select id="sort" class="custom-select">
+                    <option value="">По порядку</option>
+                    <option value="byRating">По рейтингу</option>
+                    <option value="byReleaseYear">По году выхода</option>
+                    <option value="byTitle">По названию</option>
+                </select>
+            </div>
+        </form>
+        <div class="pagination">
+            <button id="prev-page" class="btn">&#8592;</button>
+            <div id="page-numbers"></div>
+            <button id="next-page" class="btn">&#8594;</button>
+        </div>
+    </aside>
+    <div class="container"></div>
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-content"></div>
+    </div>
+    <div id="modal" class="modal">
+        <div class="modal-content"></div>
+    </div>
+  </body>
+</html>

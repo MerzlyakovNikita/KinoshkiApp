@@ -1,0 +1,474 @@
+body {
+    font-family: "Nunito", sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100vh;
+    background-color: #f4f4f4;
+    position: relative;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 15%;
+    background-color: #333;
+    padding: 10px;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+header .logo {
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+.filter {
+    width: 15%;
+    padding: 20px;
+    background-color: white;
+    border-right: 1px solid #ddd;
+    box-sizing: border-box;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    top : 52px;
+    height: calc(100% - 52px);
+    overflow-y: auto;
+}
+
+.filter .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    padding: 10px 0;
+}
+
+.pagination .btn {
+    margin: 0 5px;
+    padding: 5px 10px;
+}
+
+.pagination #page-numbers {
+    display: flex;
+    align-items: center;
+}
+
+.pagination .page-number {
+    margin: 0 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.pagination .page-number.current {
+    font-weight: bold;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+.pagination .ellipsis {
+    margin: 0 5px;
+}
+
+.filter-group {
+    margin-bottom: 15px;
+}
+
+.filter-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.filter-group select {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+}
+
+.range-values {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.container {
+    width: 85%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px 10px 20px 20px;
+    box-sizing: border-box;
+    margin-left: 15%;
+}
+
+.movie-card {
+    display: flex;
+    flex-direction: row;
+    width: calc(50% - 20px);
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.movie-card img {
+    width: 25%;
+    height: auto;
+    cursor: pointer;
+    border-right: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.movie-card .btn {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
+
+.movie-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 70%;
+    position: relative;
+}
+
+.movie-title {
+    font-size: 18px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100% - 130px); /* Место для оценки */
+}
+
+.movie-info .year-genre {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+    max-width: calc(100% - 130px); /* Место для оценки */
+}
+
+.year-genre .separator {
+    font-weight: bold;
+    margin: 0 5px;
+}
+
+.movie-short-description {
+    position: absolute;
+    top: 100px;
+    font-size: 15px;
+}
+
+.movie-rating {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
+
+.ratings-container {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.rating-pair {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rating-source {
+    font-size: 0.8em;
+    color: #888;
+    margin-top: 5px;
+}
+
+#rating-slider, #release-year-slider {
+    height: 10px;
+}
+
+.slider-styled .noUi-connect {
+    background: #666;
+}
+
+#rating-slider .noUi-handle,
+#release-year-slider .noUi-handle {
+    height: 18px;
+    width: 18px;
+    top: -5px;
+    right: -9px;
+    border-radius: 9px;
+}
+
+.slider-styled,
+.slider-styled .noUi-handle {
+    box-shadow: none;
+}
+
+.slider-styled .noUi-handle::before,
+.slider-styled .noUi-handle::after {
+    display: none;
+}
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    background-color: #f4f4f4;
+    overflow: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    color: #333;
+    border-left: 1px solid #ccc;
+}
+
+.sidebar-content {
+    padding: 20px;
+    height: calc(100% - 60px);
+    overflow-y: auto;
+    font-size: 14px;
+}
+
+.sidebar img {
+    width: 45%;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
+}
+
+.sidebar .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+}
+
+.sidebar h2 {
+    font-size: 24px;
+    text-align: center;
+}
+
+.sidebar p {
+    font-size: 15px;
+    margin: 10px 0;
+}
+
+.close-btn {
+    color: #aaa;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: 333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: #aaa;
+}
+
+.btn:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+.custom-select {
+    appearance: none;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: white url('data:image/svg+xml;utf8,<svg fill="%23333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center;
+    font-size: 16px;
+    color: #333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.custom-select:focus {
+    outline: none;
+    border-color: #333;
+}
+
+.custom-select::-webkit-scrollbar {
+    width: 0;
+}
+
+.custom-select option {
+    padding: 10px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding: 50px 0px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: calc(100% - 100px);
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 750px;
+    height: calc(100% - 42px);
+    overflow-y: auto;
+}
+
+.modal .close-btn {
+    position: relative;
+    top: -15px;
+    float: right;
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+/*Отключение полосы прокрутки в модал.*/
+.modal-content::-webkit-scrollbar {
+    width: 0;
+}
+
+.modal .btn {
+    float: right;
+}
+
+.modal h2 {
+    margin: 30px 0 20px;
+}
+
+.modal p {
+    margin-top: 55px;
+}
+
+textarea {
+    resize: none;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    line-height: 1.5;
+    transition: border-color 0.3s;
+}
+
+textarea:focus {
+    border-color: #333;
+    outline: none;
+}
+
+#reviewText {
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+.rating-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.rating-container label {
+    margin-right: 10px;
+}
+
+.rating-numbers {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10px;
+}
+
+.rating-number {
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 5px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.rating-number.selected {
+    background-color: var(--bg-color);
+}
+
+#reviewMessage {
+    float: right;
+    padding: 9px;
+}
+
+.review {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.review-username {
+    font-weight: bold;
+}
+
+.review-rating {
+    font-weight: bold;
+}
+
+.review-text {
+    margin-top: 5px;
+}
+
+.read-more, .collapse {
+    color: blue;
+    cursor: pointer;
+}
