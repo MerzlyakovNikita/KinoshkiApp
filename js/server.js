@@ -1,14 +1,12 @@
 const express = require('express');
 const cors = require('cors');
 const mysql = require('mysql2');
-const bodyParser = require('body-parser');
 
 const app = express();
-const port = 3006;
+const port = process.env.PORT || 3006;
 
 app.use(cors());
 app.use('/posters', express.static('posters'));
-app.use(bodyParser.json());
 
 // Настройка подключения к базе данных
 const db = mysql.createConnection({
