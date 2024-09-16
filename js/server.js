@@ -7,6 +7,7 @@ const port = process.env.PORT || 3006;
 
 app.use(cors());
 app.use('/posters', express.static('posters'));
+app.use(express.json());
 
 // Настройка подключения к базе данных
 const db = mysql.createConnection({

@@ -465,14 +465,14 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Закрытие сайдбара/модал. при нажатии на крестик
+    // Закрытие сайдбара при нажатии на крестик
     document.addEventListener('click', (event) => {
         if (event.target.matches('.close-btn')) {
             sidebar.style.width = '0';
         }
     });
 
-    // Закрытие сайдбара/модал. при нажатии на ESC
+    // Закрытие сайдбара при нажатии на ESC
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') {
             sidebar.style.width = '0';
