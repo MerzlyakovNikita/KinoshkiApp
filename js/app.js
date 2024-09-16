@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const modalContent = document.querySelector('.modal-content');
     const prevButton = document.getElementById('prev-page');
     const nextButton = document.getElementById('next-page');
-    const pageNumbers = document.getElementById('page-numbers');
+    const pageNumbers = document.querySelector('.page-numbers');
 
     const moviesURL = 'http://localhost:3006/movies';
     const reviewsURL = 'http://localhost:3006/reviews';
