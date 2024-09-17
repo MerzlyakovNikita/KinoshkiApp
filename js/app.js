@@ -414,6 +414,7 @@ document.addEventListener("DOMContentLoaded", function() {
                             <div class="review">
                                 <div class="review-header">
                                     <span class="review-username">Гость</span>
+                                    <span class="review-date">${formatDate(review.created_at)}</span>
                                     <span class="review-rating" style="color: ${setRatingColor(review.rating)};">${review.rating}</span>
                                 </div>
                                 <div class="review-text" data-full-text="${reviewText}" data-collapsed-text="${truncatedText}">
@@ -429,6 +430,15 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             })
             .catch(error => console.error('Ошибка при загрузке отзывов:', error));
+    }
+
+    // Функция для форматирования даты
+    function formatDate(timestamp) {
+        const date = new Date(timestamp);
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const year = date.getFullYear();
+        return `${day}.${month}.${year}`;
     }
 
     // Функция для событий к кнопкам «Подробнее»

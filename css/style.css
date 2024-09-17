@@ -109,13 +109,6 @@ header .logo {
     margin-bottom: 5px;
 }
 
-.filter-group select {
-    width: 100%;
-    padding: 5px;
-    margin-bottom: 5px;
-    box-sizing: border-box;
-}
-
 .range-values {
     display: flex;
     justify-content: space-between;
@@ -329,6 +322,13 @@ header .logo {
     cursor: not-allowed;
 }
 
+.filter-group select {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+}
+
 .custom-select {
     appearance: none;
     width: 100%;
@@ -358,11 +358,8 @@ header .logo {
     display: none;
     position: fixed;
     z-index: 1;
-    padding: 50px 0px;
-    left: 0;
-    top: 0;
     width: 100%;
-    height: calc(100% - 100px);
+    height: 100%;
     overflow: auto;
     background-color: rgba(0,0,0,0.4);
 }
@@ -371,10 +368,9 @@ header .logo {
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
-    border: 1px solid #888;
     width: 90%;
     max-width: 750px;
-    height: calc(100% - 42px);
+    height: calc(100% - 40px);
     overflow-y: auto;
 }
 
@@ -479,11 +475,20 @@ textarea:focus {
 }
 
 .review-username {
+    font-size: 17px;
     font-weight: bold;
+    margin-right: 10px;
+}
+
+.review-date {
+    font-size: 14px;
+    color: gray;
 }
 
 .review-rating {
+    font-size: 17px;
     font-weight: bold;
+    margin-left: auto;
 }
 
 .review-text {
